@@ -1,0 +1,1141 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   BODY
+========================================= */
+
+body {
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+
+    background: #000;
+
+    color: #fff;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================================
+   TELA INICIAL
+========================================= */
+
+.tela-inicial {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+
+    background: #000;
+}
+
+
+/* =========================================
+   FUNDO DA TELA INICIAL
+========================================= */
+
+.fundo {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    background: #000;
+}
+
+
+/* =========================================
+   CENAS
+========================================= */
+
+.cena {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    opacity: 0;
+
+    transform: scale(1);
+
+    transition:
+        opacity 2.5s ease-in-out,
+        transform 8s ease-in-out;
+
+    filter:
+        brightness(0.75)
+        contrast(1.1)
+        saturate(0.8);
+}
+
+
+.cena.ativa {
+    opacity: 1;
+
+    transform: scale(1.08);
+}
+
+
+/* =========================================
+   OVERLAY
+========================================= */
+
+.overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.35),
+            rgba(0, 0, 0, 0.70)
+        );
+}
+
+
+/* =========================================
+   VINHETA
+========================================= */
+
+.vinheta {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 3;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 25%,
+            rgba(0, 0, 0, 0.30) 55%,
+            rgba(0, 0, 0, 0.95) 100%
+        );
+}
+
+
+/* =========================================
+   CONTEÚDO INICIAL
+========================================= */
+
+.conteudo {
+    position: relative;
+
+    z-index: 5;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 20px;
+
+    animation: entrada 2.5s ease forwards;
+}
+
+
+/* =========================================
+   SUBTÍTULO
+========================================= */
+
+.subtitulo {
+    margin-bottom: 25px;
+
+    color: #bdbdbd;
+
+    font-size: 12px;
+
+    letter-spacing: 7px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================
+   TÍTULO
+========================================= */
+
+h1 {
+    color: #fff;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: clamp(55px, 9vw, 120px);
+
+    font-weight: 400;
+
+    line-height: 0.82;
+
+    letter-spacing: 8px;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,0.15),
+        0 0 30px rgba(0,0,0,0.8),
+        0 5px 25px rgba(0,0,0,1);
+}
+
+
+/* =========================================
+   DESCRIÇÃO
+========================================= */
+
+.descricao {
+    margin-top: 35px;
+
+    color: #c4c4c4;
+
+    font-size: 14px;
+
+    font-weight: 300;
+
+    line-height: 1.8;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 2px 10px #000;
+}
+
+
+/* =========================================
+   BOTÃO INICIAR
+========================================= */
+
+#btnIniciar {
+    position: relative;
+
+    margin-top: 45px;
+
+    padding: 16px 55px;
+
+    background: rgba(0, 0, 0, 0.15);
+
+    color: #fff;
+
+    border: 1px solid rgba(255, 255, 255, 0.55);
+
+    font-size: 13px;
+
+    letter-spacing: 5px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.4s ease,
+        border-color 0.4s ease,
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+#btnIniciar::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 2px;
+
+    background: #fff;
+
+    transition: width 0.4s ease;
+}
+
+
+#btnIniciar:hover {
+    background: rgba(255, 255, 255, 0.12);
+
+    border-color: #fff;
+
+    transform: scale(1.06);
+
+    box-shadow:
+        0 0 25px rgba(255,255,255,0.12);
+}
+
+
+#btnIniciar:hover::before {
+    width: 100%;
+}
+
+
+/* =========================================
+   TRANSIÇÃO
+========================================= */
+
+.transicao {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: #000;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+
+.transicao.ativa {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+.texto-transicao {
+    color: #777;
+
+    font-size: 12px;
+
+    letter-spacing: 8px;
+
+    animation:
+        pulsar 2s infinite ease-in-out;
+}
+
+
+/* =========================================
+   SELEÇÃO DE PERSONAGEM
+========================================= */
+
+.selecao-personagem {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 20;
+
+    display: none;
+
+    overflow: hidden;
+
+    background: #050505;
+}
+
+
+.selecao-personagem.ativa {
+    display: block;
+
+    animation: aparecer 1.2s ease forwards;
+}
+
+
+/* =========================================
+   FUNDO DA SELEÇÃO
+========================================= */
+
+.selecao-fundo {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #202020 0%,
+            #090909 55%,
+            #000 100%
+        );
+}
+
+
+/* =========================================
+   OVERLAY DA SELEÇÃO
+========================================= */
+
+.selecao-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 20%,
+            rgba(0,0,0,0.85) 100%
+        );
+}
+
+
+/* =========================================
+   CONTEÚDO DA SELEÇÃO
+========================================= */
+
+.selecao-conteudo {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 45px 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    overflow-y: auto;
+}
+
+
+/* =========================================
+   TEXTO DA SELEÇÃO
+========================================= */
+
+.selecao-subtitulo {
+    color: #777;
+
+    font-size: 10px;
+
+    letter-spacing: 6px;
+
+    margin-bottom: 15px;
+}
+
+
+.selecao-conteudo h2 {
+    color: #eee;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: clamp(35px, 5vw, 65px);
+
+    font-weight: 400;
+
+    line-height: 0.9;
+
+    letter-spacing: 5px;
+
+    text-shadow:
+        0 0 20px rgba(255,255,255,0.08);
+}
+
+
+.selecao-instrucao {
+    margin-top: 18px;
+
+    color: #777;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================================
+   PERSONAGENS
+========================================= */
+
+.personagens {
+    width: 100%;
+
+    max-width: 1250px;
+
+    margin-top: 45px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 18px;
+
+    transition:
+        transform 0.5s ease;
+}
+
+
+/* =========================================
+   BOTÃO DO PERSONAGEM
+========================================= */
+
+.personagem {
+    position: relative;
+
+    border: none;
+
+    padding: 0;
+
+    background: transparent;
+
+    color: #fff;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.5s ease,
+        opacity 0.5s ease;
+}
+
+
+/* =========================================
+   IMAGEM DO PERSONAGEM
+========================================= */
+
+.personagem-imagem {
+    position: relative;
+
+    width: 100%;
+
+    height: 300px;
+
+    overflow: hidden;
+
+    background: #111;
+
+    border:
+        1px solid rgba(255,255,255,0.15);
+
+    transition:
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+.personagem-imagem::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 40%,
+            rgba(0,0,0,0.85)
+        );
+
+    pointer-events: none;
+}
+
+
+.personagem-imagem img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter:
+        grayscale(35%)
+        brightness(0.75);
+
+    transition:
+        transform 0.6s ease,
+        filter 0.6s ease;
+}
+
+
+/* =========================================
+   NOME
+========================================= */
+
+.nome-personagem {
+    display: block;
+
+    margin-top: 14px;
+
+    color: #aaa;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    transition:
+        color 0.4s ease;
+}
+
+
+/* =========================================
+   HOVER
+========================================= */
+
+.personagem:hover {
+    transform:
+        translateY(-10px);
+}
+
+
+.personagem:hover .personagem-imagem {
+    border-color:
+        rgba(255,255,255,0.7);
+
+    box-shadow:
+        0 0 30px rgba(255,255,255,0.12);
+}
+
+
+.personagem:hover img {
+    transform: scale(1.08);
+
+    filter:
+        grayscale(0%)
+        brightness(0.95);
+}
+
+
+.personagem:hover .nome-personagem {
+    color: #fff;
+}
+
+
+/* =========================================
+   PERSONAGEM SELECIONADO
+========================================= */
+
+.personagem.selecionado {
+    transform:
+        translateY(-15px);
+}
+
+
+.personagem.selecionado .personagem-imagem {
+    border-color: #fff;
+
+    box-shadow:
+        0 0 35px rgba(255,255,255,0.22);
+}
+
+
+.personagem.selecionado img {
+    filter:
+        grayscale(0%)
+        brightness(1);
+
+    transform: scale(1.05);
+}
+
+
+.personagem.selecionado .nome-personagem {
+    color: #fff;
+}
+
+
+/* =========================================
+   QUANDO EXISTE SELEÇÃO
+========================================= */
+
+.personagens.tem-selecao .personagem:not(.selecionado) {
+    opacity: 0.45;
+}
+
+
+.personagens.tem-selecao .personagem:not(.selecionado):hover {
+    opacity: 0.8;
+}
+
+
+/* =========================================
+   TELA DA HISTÓRIA
+========================================= */
+
+.historia {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 50;
+
+    display: none;
+
+    overflow: hidden;
+
+    background: #000;
+}
+
+
+.historia.ativa {
+    display: flex;
+
+    animation:
+        historiaEntrada 1.2s ease forwards;
+}
+
+
+/* =========================================
+   IMAGEM DA HISTÓRIA
+========================================= */
+
+#imagemHistoria {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter:
+        brightness(0.42)
+        contrast(1.15)
+        saturate(0.65);
+
+    transform: scale(1.03);
+
+    animation:
+        zoomHistoria 12s ease-in-out infinite alternate;
+}
+
+
+/* =========================================
+   ESCURECIMENTO DA HISTÓRIA
+========================================= */
+
+.historia::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.25),
+            rgba(0,0,0,0.82)
+        );
+}
+
+
+.historia::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 20%,
+            rgba(0,0,0,0.75) 100%
+        );
+}
+
+
+/* =========================================
+   CONTEÚDO DA HISTÓRIA
+========================================= */
+
+.historia-conteudo {
+    position: relative;
+
+    z-index: 5;
+
+    width: 100%;
+    height: 100%;
+
+    padding:
+        50px
+        8vw
+        60px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    align-items: flex-start;
+}
+
+
+/* =========================================
+   PERSONAGEM DA HISTÓRIA
+========================================= */
+
+#historiaPersonagem {
+    margin-bottom: 12px;
+
+    color: #999;
+
+    font-size: 10px;
+
+    letter-spacing: 6px;
+}
+
+
+/* =========================================
+   TÍTULO DA HISTÓRIA
+========================================= */
+
+#tituloHistoria {
+    max-width: 900px;
+
+    color: #fff;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: clamp(
+        35px,
+        5vw,
+        65px
+    );
+
+    font-weight: 400;
+
+    letter-spacing: 4px;
+
+    text-shadow:
+        0 3px 20px #000;
+}
+
+
+/* =========================================
+   TEXTO DA HISTÓRIA
+========================================= */
+
+#textoHistoria {
+    max-width: 750px;
+
+    margin-top: 22px;
+
+    color: #d0d0d0;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    letter-spacing: 0.5px;
+
+    text-shadow:
+        0 2px 12px #000;
+}
+
+
+/* =========================================
+   OPÇÕES
+========================================= */
+
+#opcoes {
+    margin-top: 35px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+}
+
+
+/* =========================================
+   BOTÕES DAS ESCOLHAS
+========================================= */
+
+.opcao {
+    position: relative;
+
+    padding:
+        14px
+        25px;
+
+    background:
+        rgba(0,0,0,0.45);
+
+    color: #ddd;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.3);
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.35s ease,
+        border-color 0.35s ease,
+        color 0.35s ease,
+        transform 0.35s ease;
+}
+
+
+.opcao:hover {
+    background:
+        rgba(255,255,255,0.12);
+
+    border-color:
+        rgba(255,255,255,0.8);
+
+    color: #fff;
+
+    transform:
+        translateY(-3px);
+}
+
+
+/* =========================================
+   ANIMAÇÕES
+========================================= */
+
+@keyframes entrada {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes pulsar {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes historiaEntrada {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(1.03);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+}
+
+
+@keyframes zoomHistoria {
+
+    from {
+        transform:
+            scale(1.03);
+    }
+
+    to {
+        transform:
+            scale(1.10);
+    }
+}
+
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 1100px) {
+
+    .personagens {
+        grid-template-columns:
+            repeat(4, 1fr);
+
+        gap: 20px;
+    }
+
+
+    .personagem-imagem {
+        height: 260px;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .subtitulo {
+        font-size: 9px;
+
+        letter-spacing: 4px;
+    }
+
+
+    h1 {
+        font-size: 50px;
+
+        letter-spacing: 4px;
+    }
+
+
+    .descricao {
+        font-size: 12px;
+
+        letter-spacing: 1px;
+    }
+
+
+    #btnIniciar {
+        padding:
+            14px
+            40px;
+
+        font-size: 11px;
+    }
+
+
+    .selecao-conteudo {
+        padding:
+            30px
+            18px;
+    }
+
+
+    .personagens {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 18px;
+
+        margin-top: 30px;
+    }
+
+
+    .personagem-imagem {
+        height: 230px;
+    }
+
+
+    .nome-personagem {
+        font-size: 9px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .historia-conteudo {
+        padding:
+            30px
+            25px
+            40px;
+    }
+
+
+    #historiaPersonagem {
+        font-size: 8px;
+
+        letter-spacing: 4px;
+    }
+
+
+    #tituloHistoria {
+        font-size: 35px;
+
+        letter-spacing: 2px;
+    }
+
+
+    #textoHistoria {
+        font-size: 13px;
+
+        line-height: 1.6;
+    }
+
+
+    #opcoes {
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+
+    .opcao {
+        width: 100%;
+
+        text-align: left;
+    }
+}
