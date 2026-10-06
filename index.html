@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Nightmare - Interactive Adventure</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         TELA INICIAL
+    ========================================== -->
+
+    <main
+        class="tela-inicial"
+        id="telaInicial"
+    >
+
+        <div class="fundo">
+
+            <img
+                src="https://i.pinimg.com/1200x/3f/20/e5/3f20e526ed969b00f3843057887affa9.jpg"
+                class="cena ativa"
+                alt="Cena de Little Nightmares"
+            >
+
+            <img
+                src="https://i.pinimg.com/736x/db/65/0a/db650ab124871b575466ebc668223f88.jpg"
+                class="cena"
+                alt="Cena de Little Nightmares"
+            >
+
+            <img
+                src="https://i.pinimg.com/736x/85/7a/88/857a88483a391c176ef4087dc183aa3f.jpg"
+                class="cena"
+                alt="Cena de Little Nightmares"
+            >
+
+            <img
+                src="https://i.pinimg.com/1200x/03/8b/43/038b43d89f6425acc2df5436009f2e6f.jpg"
+                class="cena"
+                alt="Cena de REANIMAL"
+            >
+
+        </div>
+
+
+        <div class="overlay"></div>
+
+        <div class="vinheta"></div>
+
+
+        <section class="conteudo">
+
+            <p class="subtitulo">
+                UMA AVENTURA INTERATIVA
+            </p>
+
+            <h1>
+                LITTLE<br>
+                NIGHTMARES
+            </h1>
+
+            <p class="descricao">
+                Entre na escuridão.<br>
+                Escolha seu personagem.<br>
+                Descubra seu próprio pesadelo.
+            </p>
+
+            <button id="btnIniciar">
+                INICIAR
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         TELA DE TRANSIÇÃO
+    ========================================== -->
+
+    <div
+        class="transicao"
+        id="transicao"
+    >
+
+        <div class="texto-transicao">
+            PREPARE-SE...
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         SELEÇÃO DE PERSONAGEM
+    ========================================== -->
+
+    <section
+        class="selecao-personagem"
+        id="selecaoPersonagem"
+    >
+
+        <div class="selecao-fundo"></div>
+
+        <div class="selecao-overlay"></div>
+
+
+        <div class="selecao-conteudo">
+
+            <p class="selecao-subtitulo">
+                UMA NOVA HISTÓRIA COMEÇA
+            </p>
+
+            <h2>
+                ESCOLHA SEU<br>
+                PERSONAGEM
+            </h2>
+
+            <p class="selecao-instrucao">
+                Escolha com cuidado...
+            </p>
+
+
+            <div class="personagens">
+
+
+                <!-- SIX -->
+
+                <button
+                    class="personagem"
+                    data-personagem="six"
+                    data-nome="SIX"
+                >
+
+                    <div class="personagem-imagem">
+
+                        <img
+                            src="https://i.pinimg.com/736x/7c/48/fe/7c48fef21ec4cc40a296ff95962c6e57.jpg"
+                            alt="Six"
+                        >
+
+                    </div>
+
+                    <span class="nome-personagem">
+                        SIX
+                    </span>
+
+                </button>
+
+
+                <!-- MONO -->
+
+                <button
+                    class="personagem"
+                    data-personagem="mono"
+                    data-nome="MONO"
+                >
+
+                    <div class="personagem-imagem">
+
+                        <img
+                            src="https://i.pinimg.com/736x/af/8c/7d/af8c7ddde01e672960a35c37b00c8e1c.jpg"
+                            alt="Mono"
+                        >
+
+                    </div>
+
+                    <span class="nome-personagem">
+                        MONO
+                    </span>
+
+                </button>
+
+
+                <!-- RUNAWAY KID -->
+
+                <button
+                    class="personagem"
+                    data-personagem="runaway-kid"
+                    data-nome="THE RUNAWAY KID"
+                >
+
+                    <div class="personagem-imagem">
+
+                        <img
+                            src="https://i.pinimg.com/736x/9c/8f/69/9c8f6980d5a0b36ab1a6dbcd924799d3.jpg"
+                            alt="The Runaway Kid"
+                        >
+
+                    </div>
+
+                    <span class="nome-personagem">
+                        THE RUNAWAY KID
+                    </span>
+
+                </button>
+
+
+                <!-- LOW -->
+
+                <button
+                    class="personagem"
+                    data-personagem="low"
+                    data-nome="LOW"
+                >
+
+                    <div class="personagem-imagem">
+
+                        <img
+                            src="https://i.pinimg.com/736x/48/76/b2/4876b25571379526474195526757c62f.jpg"
+                            alt="Low"
+                        >
+
+                    </div>
+
+                    <span class="nome-personagem">
+                        LOW
+                    </span>
+
+                </button>
+
+
+                <!-- ALONE -->
+
+                <button
+                    class="personagem"
+                    data-personagem="alone"
+                    data-nome="ALONE"
+                >
+
+                    <div class="personagem-imagem">
+
+                        <img
+                            src="https://i.pinimg.com/1200x/a8/7b/59/a87b5982553d59dc18cdc9f63bec4eb8.jpg"
+                            alt="Alone"
+                        >
+
+                    </div>
+
+                    <span class="nome-personagem">
+                        ALONE
+                    </span>
+
+                </button>
+
+
+                <!-- THE GIRL -->
+
+                <button
+                    class="personagem"
+                    data-personagem="girl"
+                    data-nome="THE GIRL"
+                >
+
+                    <div class="personagem-imagem">
+
+                        <img
+                            src="https://i.pinimg.com/736x/d2/7f/36/d27f36473be71a8ce5c3f9e23ef31879.jpg"
+                            alt="The Girl"
+                        >
+
+                    </div>
+
+                    <span class="nome-personagem">
+                        THE GIRL
+                    </span>
+
+                </button>
+
+
+                <!-- THE BOY -->
+
+                <button
+                    class="personagem"
+                    data-personagem="boy"
+                    data-nome="THE BOY"
+                >
+
+                    <div class="personagem-imagem">
+
+                        <img
+                            src="https://i.pinimg.com/736x/97/b8/0b/97b80bd65893e8fca6583645e53da575.jpg"
+                            alt="The Boy"
+                        >
+
+                    </div>
+
+                    <span class="nome-personagem">
+                        THE BOY
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         TELA DA HISTÓRIA
+    ========================================== -->
+
+    <section
+        class="historia"
+        id="historia"
+    >
+
+        <!-- IMAGEM DA HISTÓRIA -->
+
+        <img
+            id="imagemHistoria"
+            src=""
+            alt="Cena da história"
+        >
+
+
+        <!-- ESCURECIMENTO -->
+
+        <div class="historia-overlay"></div>
+
+
+        <!-- CONTEÚDO -->
+
+        <div class="historia-conteudo">
+
+            <p
+                class="historia-personagem"
+                id="historiaPersonagem"
+            >
+                SIX
+            </p>
+
+
+            <h2
+                id="tituloHistoria"
+            >
+                A ESCURIDÃO
+            </h2>
+
+
+            <p
+                id="textoHistoria"
+            >
+            </p>
+
+
+            <div
+                class="opcoes"
+                id="opcoes"
+            >
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
